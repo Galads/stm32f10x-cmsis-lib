@@ -1,1 +1,1 @@
-Библиотеки для МК STM32F100RB
+lib for stm32f100rb
