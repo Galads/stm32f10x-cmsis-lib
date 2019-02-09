@@ -1,6 +1,42 @@
+#include "stm32f10x.h"   
+#include "i2c.h"
 
-//Автоматически созданная таблица шрифта
-const unsigned char	FontTable[256][5] = {
+#define address_Device 			((uint8_t)0x78) // адрес подключаемого устройства по шине I2C
+
+// Массив инициализации 
+uint8_t oled_init[27] = {
+	
+									0x00,
+									0xAE,
+									0xD5,
+									0x80,
+									0xA8,
+									0x3F,
+									0xD3,
+									0x00,
+									0x40,
+									0x8D,
+									0x14,
+									0x20,
+									0x02,
+									0xA1,
+									0xC8,
+									0xDA,
+									0x12,
+									0x81,
+									0xCF,
+									0xD9,
+									0xF1,
+									0xDB,
+									0x40,
+									0x2E,
+									0xA4,
+									0xA6,
+									0xAF
+};
+
+// Таблица символов ASKII
+const unsigned char	fontTable[256][5] = {
    { 0x00, 0x00, 0x00, 0x00, 0x00 },   //   0x00   0
    { 0x00, 0x00, 0x00, 0x00, 0x00 },   //   0x01   1
    { 0x00, 0x00, 0x00, 0x00, 0x00 },   //   0x02   2
