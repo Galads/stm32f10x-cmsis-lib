@@ -1,5 +1,6 @@
 #include "stm32f10x.h"   
 #include "i2c.h"
+#include "string.h"
 
 #define address_Device 			((uint8_t)0x78) // адрес подключаемого устройства по шине I2C
 

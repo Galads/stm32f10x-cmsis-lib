@@ -9,3 +9,4 @@
 .\objects\oled_ssd1306.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
 .\objects\oled_ssd1306.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h
 .\objects\oled_ssd1306.o: .\UserCode\inc\i2c.h
+.\objects\oled_ssd1306.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

@@ -77,40 +77,78 @@ void display_Write_Negative(uint8_t word)
 }
 /** Функция вывода негативного символа на дисплей конец **/
 
-/** Функция вывода начала строки дисплей начало **/
+/** Функция вывода начала символа дисплей начало **/
 void display_Сursor(uint8_t x, uint8_t y)
 {
-	
+		int x1,x2;
 		beginTransmission(address_Device);
 		write(0x00);
-		write(0x10);
-		write(0x02);
+		x1 = x%0x0f;
+		x2 = x/0x10;
+		write(0x03 + x1);	
+		write(0x10 + x2);
+		
 		write(0xB0 + y);
-	
+		
 		beginTransmission(address_Device);
 		write(0x40);
+	
 
 }
-/** Функция вывода начала строки дисплей конец **/
+/** Функция вывода начала символа дисплей конец **/
 
-int main()
+/**** Функция вывода строки на дисплей начало ****/
+
+void display_Printf(char *str)
 {
 
+		for(int i=0; i<strlen(str);i++)
+		{
+		
+			display_Write(str[i]);
+		
+		}
+
+}
+
+void display_Negative_Printf(char *str)
+{
+
+		for(int i=0; i<strlen(str);i++)
+		{
+		
+			display_Write_Negative(str[i]);
+			
+		}
+
+}
+
+void display_Rus_Printf(char *str)
+{
+
+		for(int i=0; i<strlen(str);i++)
+		{
+		
+			display_Write(str[i] + 48);
+		
+		}
+
+}
+
+/**** Функция вывода строки на дисплей конец****/
+int main()
+{
+	
 		i2c_Init();
 		oled_Init();
 		display_Clean();
-
-		display_Сursor(20,3);
-	
-		display_Write_Negative('S');
-		display_Write_Negative('T');
-		display_Write_Negative('A');
-		display_Write_Negative('S');
-		display_Write(' ');
-		display_Write('S');
-		display_Write('T');
-		display_Write('A');
-		display_Write('S');
+		display_Сursor(26,3);
+		display_Printf(" Hello World ");
+		display_Сursor(26,4);
+		display_Negative_Printf(" Hello World ");
+	display_Сursor(26,5);
+		display_Negative_Printf("_____________");
+		
 				
 	while(1)
 	{
@@ -120,3 +158,32 @@ int main()
 	
 }
 
+
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Write('.');
+//		display_Сursor(42,1);
+//		
+//	  display_Write('S');
+//		display_Write('T');
+//		display_Write('A');
+//		display_Write('S');
