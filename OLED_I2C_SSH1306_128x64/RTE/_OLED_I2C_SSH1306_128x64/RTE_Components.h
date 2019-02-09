@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'OLED' 
- * Target:  'Code' 
+ * Project: 'OLED_I2C_SSH1306_128x64' 
+ * Target:  'OLED_I2C_SSH1306_128x64' 
  */
 
 #ifndef RTE_COMPONENTS_H

@@ -13,7 +13,8 @@
   *
   ******************************************************************************
   */
-#include "stm32f10x.h"                  
+#include "stm32f10x.h"   
+#include "oled_ssd1306.h"
 #define Address_Write 			((uint16_t)0x78)
 
 /************* I2C FUNCTION BEGIN *************/

@@ -21,17 +21,17 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-C:\Users\Stas\Desktop\OLED\OLED.uvprojx
+C:\Users\Stas\YandexDisk\STMicrocontrollers\stm32f10x-cmsis-lib\OLED_I2C_SSH1306_128x64\OLED_I2C_SSH1306_128x64.uvprojx
 Project File Date:  02/05/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Code'
+Rebuild target 'UserCode'
 assembling startup_stm32f10x_md_vl.s...
-compiling OLED.c...
 compiling system_stm32f10x.c...
+compiling oled_ssd1306.c...
 linking...
-Program Size: Code=1476 RO-data=304 RW-data=0 ZI-data=1632  
+Program Size: Code=1460 RO-data=304 RW-data=0 ZI-data=1632  
 ".\Objects\OLED.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -50,7 +50,7 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F100RB
-  .\RTE\_Code
+  .\RTE\_UserCode
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
@@ -59,11 +59,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.1.2
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md_vl.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md_vl.s
       Source file:   Device\Source\system_stm32f10x.c
-Build Time Elapsed:  00:00:04
+      Include file:  RTE_Driver\Config\RTE_Device.h
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
