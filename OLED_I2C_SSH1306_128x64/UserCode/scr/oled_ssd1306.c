@@ -111,31 +111,37 @@ void display_Printf(char *str)
 
 }
 
-void display_Negative_Printf(char *str)
-{
-
-		for(int i=0; i<strlen(str);i++)
-		{
-		
-			display_Write_Negative(str[i]);
-			
-		}
-
-}
-
 void display_Rus_Printf(char *str)
 {
-
 		for(int i=0; i<strlen(str);i++)
 		{
-		
-			display_Write(str[i] + 48);
-		
+			 if(i%2 != 0)
+			 {
+					display_Write(str[i] + 48);
+			 }
 		}
-
 }
 
+void setPixel(uint8_t x, uint8_t y)
+{
+		int x1,x2,y1,y2;
+		beginTransmission(address_Device);
+		write(0x00);
+		x1 = x%0x0f;
+		x2 = x/0x10;
+		y1 = y/8;
+		y2 = y%8;
+		write(0x03 + x1);	
+		write(0x10 + x2);
+		write(0xB0 + y1);
+		
+		beginTransmission(address_Device);
+		write(0x40);		
+	  
+		write(0x00 | (1 << y2));
+}
 /**** Функция вывода строки на дисплей конец****/
+
 int main()
 {
 	
@@ -143,47 +149,21 @@ int main()
 		oled_Init();
 		display_Clean();
 		display_Сursor(26,3);
-		display_Printf(" Hello World ");
-		display_Сursor(26,4);
-		display_Negative_Printf(" Hello World ");
-	display_Сursor(26,5);
-		display_Negative_Printf("_____________");
-		
-				
-	while(1)
-	{
 
-	}
+	  //display_Rus_Printf("ПРИВЕТ");
+		
+		uint8_t volatile word;
+		word = 'п';
+		word = 'р';
+		word = 'т';
+
+				
+		
+		while(1)
+		{
+		
+			
+		}
 	
 	
 }
-
-
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Write('.');
-//		display_Сursor(42,1);
-//		
-//	  display_Write('S');
-//		display_Write('T');
-//		display_Write('A');
-//		display_Write('S');
